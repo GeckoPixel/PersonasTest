@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="col-sm-10">
+    <table class="table">
+        <thead class="thead-dark">
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Fecha Nacimiento</th>
+            <th colspan="2">Acciones</th>
+        </thead>
+        <tbody>
+            {%for profile in profiles %}
+            <tr>
+                <td>{{ profile.name }}</td>
+                <td>{{ profile.last_name }}</td>
+                <td>{{ profile.birth_date }}</td>
+                <td><i class="fas fa-edit" data-toggle="tooltip" title="Editar" onclick="window.location.href ='edit/{{ profile.id}}'"></i></td>
+                <td><i class="fa-solid fa-trash-can" data-toggle="tooltip" title="Borrar" onclick="window.location.href ='delete/{{ profile.id}}'"></i></i>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div class="col-sm-2">
+
+</div>
+{% endblock %}
